@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pacific Inn | Boutique Hotel in Seal Beach, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sand: #f5f0e8;
+  --sand-light: #faf7f2;
+  --ocean-deep: #1a3a4a;
+  --ocean: #2c5f6e;
+  --ocean-light: #4a8fa0;
+  --sunset: #d4956a;
+  --sunset-warm: #c67d4e;
+  --gold: #c9a96e;
+  --gold-light: #dbc08a;
+  --white: #ffffff;
+  --text-dark: #1e2328;
+  --text-body: #3d4248;
+  --text-light: #6b7280;
+  --divider: rgba(201, 169, 110, 0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text-body);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* âââ TYPOGRAPHY âââ */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--ocean-deep);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  font-style: italic;
+  max-width: 600px;
+}
+
+/* âââ NAVIGATION âââ */
+nav {
+  position: fixed;
+  top: 2.1rem; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+  padding: 0.75rem 3rem;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  transition: color 0.4s;
+}
+
+.nav-logo-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.4s;
+}
+
+nav.scrolled .nav-logo-name { color: var(--ocean-deep); }
+nav.scrolled .nav-logo-tagline { color: var(--text-light); }
+
+.nav-links {
+  display: flex;
+  gap: 2.25rem;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+nav.scrolled .nav-links a { color: var(--text-body); }
+nav.scrolled .nav-links a:hover { color: var(--ocean); }
+
+.nav-cta {
+  padding: 0.6rem 1.5rem !important;
+  border: 1.5px solid rgba(255,255,255,0.5) !important;
+  border-radius: 2px;
+  font-size: 0.75rem !important;
+  transition: all 0.3s !important;
+}
+
+.nav-cta:hover {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--white) !important;
+}
+
+nav.scrolled .nav-cta {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+nav.scrolled .nav-cta:hover {
+  background: var(--gold) !important;
+  color: var(--white) !important;
+}
+
+/* âââ MOBILE NAV âââ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle span {
+  width: 24px; height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+nav.scrolled .nav-toggle span { background: var(--ocean-deep); }
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 280px; height: 100vh;
+    flex-direction: column;
+    background: var(--ocean-deep);
+    padding: 5rem 2rem 2rem;
+    gap: 1.5rem;
+    transition: right 0.3s ease;
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a { color: rgba(255,255,255,0.9) !important; font-size: 0.9rem; }
+  nav { padding: 1rem 1.5rem; }
+  nav.scrolled { padding: 0.75rem 1.5rem; }
+}
+
+/* âââ HERO âââ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.thepacificinn.com/images/ThePacificInn.com-pier.png') center/cover;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26,58,74,0.55) 0%,
+    rgba(26,58,74,0.45) 40%,
+    rgba(26,58,74,0.65) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 0 2rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.hero-badge::before, .hero-badge::after {
+  content: '';
+  width: 32px; height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.hero p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--sunset-warm);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(196,125,78,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+
+.btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.1);
+}
+
+.btn-dark {
+  background: var(--ocean-deep);
+  color: var(--white);
+}
+
+.btn-dark:hover {
+  background: var(--ocean);
+  transform: translateY(-1px);
+}
+
+/* Hero scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero-scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.4; transform: scaleY(0.6); }
+}
+
+/* âââ STATS BAR âââ */
+.stats-bar {
+  background: var(--ocean-deep);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-item {
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 700px) {
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+}
+
+/* âââ SECTIONS âââ */
+section { padding: 6rem 3rem; }
+
+@media (max-width: 700px) { section { padding: 4rem 1.5rem; } }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header .section-subtitle {
+  margin: 0 auto;
+}
+
+/* âââ ABOUT âââ */
+.about {
+  background: var(--sand-light);
+}
+
+.about-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-images {
+  position: relative;
+  height: 500px;
+}
+
+.about-img-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 75%;
+  height: 380px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.about-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-img-accent {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 55%;
+  height: 260px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 5px solid var(--sand-light);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.about-img-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content .section-title { text-align: left; }
+.about-content .section-label { text-align: left; }
+
+.about-text {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-body);
+}
+
+.about-feature-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-images { height: 350px; }
+}
+
+/* âââ ROOMS âââ */
+.rooms { background: var(--white); }
+
+.rooms-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.room-card {
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.4s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+
+.room-img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.room-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.room-card:hover .room-img img {
+  transform: scale(1.05);
+}
+
+.room-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+}
+
+.room-info {
+  padding: 1.5rem;
+}
+
+.room-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.5rem;
+}
+
+.room-desc {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.room-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.room-amenity {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  background: var(--sand-light);
+  padding: 0.3rem 0.65rem;
+  border-radius: 20px;
+}
+
+.room-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--divider);
+}
+
+.room-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--ocean-deep);
+}
+
+.room-price span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.room-book {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.room-book:hover { color: var(--sunset-warm); }
+
+@media (max-width: 900px) {
+  .rooms-grid { grid-template-columns: 1fr; max-width: 500px; }
+}
+
+/* âââ AMENITIES âââ */
+.amenities {
+  background: var(--sand-light);
+}
+
+.amenities-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.amenity-card {
+  background: var(--white);
+  padding: 2.25rem;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.amenity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+
+.amenity-icon {
+  width: 56px; height: 56px;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(135deg, var(--sand) 0%, var(--sand-light) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.amenity-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.5rem;
+}
+
+.amenity-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@lery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 180px);
+  }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(5) { grid-column: span 1; }
+}
+
+/* âââ LOCATION / EXPLORE âââ */
+.explore {
+  background: var(--ocean-deep);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.explore::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(201,169,110,0.05);
+}
+
+.explore .section-label { color: var(--gold-light); }
+.explore .section-title { color: var(--white); }
+.explore .section-subtitle { color: rgba(255,255,255,0.6); }
+
+.explore-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.explore-map {
+  border-radius: 4px;
+  overflow: hidden;
+  height: 420px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.explore-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.attraction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.attraction {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.attraction:hover { background: rgba(255,255,255,0.08); }
+
+.attraction-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  background: rgba(201,169,110,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.attraction-info h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 0.15rem;
+}
+
+.attraction-info p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 900px) {
+  .explore-content { grid-template-columns: 1fr; }
+  .explore-map { height: 300px; }
+}
+
+/* âââ REVIEWS âââ */
+.reviews { background: var(--sand-light); }
+
+.reviews-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.review-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--ocean-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.review-author-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.review-author-source {
+  font-size: 0.72rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 700px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* âââ CTA BANNER âââ */
+.cta-banner {
+  position: relative;
+  padding: 5rem 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.thepacificinn.com/images/gallery/ThePacificInn.com-gallery-05-lounge.jpg') center/cover;
+}
+
+.cta-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,58,74,0.88) 0%, rgba(44,95,110,0.82) 100%);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.cta-content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+}
+
+/* âââ FOOTER âââ */
+footer {
+  background: #0f2530;
+  color: rgba(255,255,255,0.7);
+  padding: 4rem 3rem 2rem;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+}
+
+.footer-brand .nav-logo-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-brand .nav-logo-tagline {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1.25rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-contact-item {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-contact-icon {
+  flex-shrink: 0;
+  color: var(--gold-light);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.footer-social a:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+@media (max-width: 700px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* âââ ANIMATIONS âââ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* âââ SPECIAL OFFER BAR âââ */
+.offer-bar {
+  background: var(--gold);
+  padding: 0.6rem 2rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+body {
+  padding-top: 2.1rem;
+}
+
+.offer-bar p {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+
+.offer-bar a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* âââ PET NOTICE âââ */
+.pet-notice {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.pet-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--sand);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: var(--ocean-deep);
+}
+
+.pet-badge strong { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- âââ OFFER BAR âââ -->
+<div class="offer-bar">
+  <p>Winter Escape Special &mdash; Book 2+ nights and receive a complimentary breakfast upgrade. <a href="#rooms">Reserve Now</a></p>
+</div>
+
+<!-- âââ NAVIGATION âââ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="nav-logo-name">The Pacific Inn</span>
+    <span class="nav-logo-tagline">Seal Beach, California</span>
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#explore">Location</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#book" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- âââ HERO âââ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span>Est. 1986 &middot; Seal Beach</span></div>
+    <h1>Your Coastal Retreat<br>Awaits</h1>
+    <p>A boutique hideaway steps from the surf, the pier, and over 30 restaurants on Main Street.</p>
+    <div class="hero-buttons">
+      <a href="#rooms" class="btn btn-primary">View Rooms &amp; Suites</a>
+      <a href="#explore" class="btn btn-outline">Explore the Area</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- âââ STATS BAR âââ -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">#1</div>
+    <div class="stat-label">Hotel in Seal Beach</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">71</div>
+    <div class="stat-label">Renovated Rooms</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">1,700+</div>
+    <div class="stat-label">Guest Reviews</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">5 min</div>
+    <div class="stat-label">Walk to Beach &amp; Pier</div>
+  </div>
+</div>
+
+<!-- âââ ABOUT âââ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-images fade-up">
+      <div class="about-img-main">
+        <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn.com-gallery-01-ExteriorHotel.jpg" alt="Pacific Inn exterior" loading="lazy">
+      </div>
+      <div class="about-img-accent">
+        <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn.com-gallery-03-lobby.jpg" alt="Hotel lobby and atrium" loading="lazy">
+      </div>
+    </div>
+    <div class="about-content fade-up">
+      <span class="section-label">Welcome</span>
+      <h2 class="section-title">Orange County's<br>Best-Kept Secret</h2>
+      <p class="about-text">Nestled in the heart of charming Seal Beach, The Pacific Inn delivers the warmth and attentive service of a boutique hotel alongside the amenities of a full-service resort. Just blocks from the sand, the 1,865-foot pier, and the vibrant shops and cafes of Main Street.</p>
+      <p class="about-text">Since 1986, we've welcomed guests to experience the unhurried beauty of the Southern California coast. Every one of our 71 freshly renovated rooms features a private balcony, so you can soak in the mild ocean air any time of day.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon">&#9734;</div>
+          <span>Ranked #1 on TripAdvisor</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">&#127860;</div>
+          <span>Free Hot Breakfast Daily</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">&#128663;</div>
+          <span>Complimentary Parking</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">&#128656;</div>
+          <span>Free 5-Mile Shuttle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- âââ ROOMS âââ -->
+<section class="rooms" id="rooms">
+  <div class="section-header fade-up">
+    <span class="section-label">Accommodations</span>
+    <h2 class="section-title">Rooms &amp; Suites</h2>
+    <p class="section-subtitle">Freshly renovated, thoughtfully appointed, and each with a private balcony to enjoy the California breeze.</p>
+  </div>
+  <div class="rooms-grid">
+    <!-- Deluxe Room -->
+    <div class="room-card fade-up">
+      <div class="room-img">
+        <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn-DeluxeKing-500.jpg" alt="Deluxe King Room" loading="lazy">
+        <div class="room-badge">Most Popular</div>
+      </div>
+      <div class="room-info">
+        <h3 class="room-name">Deluxe Room</h3>
+        <p class="room-desc">Where "standard" is so much more. Sink into pillow-top comfort with a flat-screen TV, refrigerator, microwave, and your own private balcony.</p>
+        <div class="room-amenities">
+          <span class="room-amenity">Private Balcony</span>
+          <span class="room-amenity">Free WiFi</span>
+          <span class="room-amenity">Fridge &amp; Microwave</span>
+          <span class="room-amenity">A/C</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">$118 <span>/ night</span></div>
+          <a href="#book" class="room-book">Book Now &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two-Room Suite -->
+    <div class="room-card fade-up">
+      <div class="room-img">
+        <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn-Junior.jpg" alt="Junior Suite" loading="lazy">
+        <div class="room-badge">Extra Space</div>
+      </div>
+      <div class="room-info">
+        <h3 class="room-name">Two-Room Suite</h3>
+        <p class="room-desc">Spread out with a separate living area featuring a sofa set, writing desk, and balcony views. Ideal for families or extended stays.</p>
+        <div class="room-amenities">
+          <span class="room-amenity">Separate Living Area</span>
+          <span class="room-amenity">Sofa &amp; Desk</span>
+          <span class="room-amenity">Private Balcony</span>
+          <span class="room-amenity">Free WiFi</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">$168 <span>/ night</span></div>
+          <a href="#book" class="room-book">Book Now &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admiral Suite -->
+    <div class="room-card fade-up">
+      <div class="room-img">
+        <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn-AdmiralSuite-500-02.jpg" alt="Admiral Suite" loading="lazy">
+        <div class="room-badge">Premium</div>
+      </div>
+      <div class="room-info">
+        <h3 class="room-name">Admiral Suite</h3>
+        <p class="room-desc">Our top-tier suite complete with a kitchenette, expansive balcony, and premium appointments for the discerning traveler.</p>
+        <div class="room-amenities">
+          <span class="room-amenity">Kitchenette</span>
+          <span class="room-amenity">Premium Linens</span>
+          <span class="room-amenity">Balcony</span>
+          <span class="room-amenity">Free WiFi</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">$218 <span>/ night</span></div>
+          <a href="#book" class="room-book">Book Now &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pet-notice">
+    <div class="pet-badge">
+      &#128054; <strong>Pet-Friendly Hotel</strong> &mdash; Furry friends welcome (up to 35 lbs, $50 one-time fee)
+    </div>
+  </div>
+</section>
+
+<!-- âââ AMENITIES âââ -->
+<section class="amenities" id="amenities">
+  <div class="section-header fade-up">
+    <span class="section-label">Hotel Amenities</span>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">Resort-level amenities with the personal touch of a boutique stay.</p>
+  </div>
+  <div class="amenities-grid">
+    <div class="amenity-card fade-up">
+      <div class="amenity-icon">&#127858;</div>
+      <h3 class="amenity-name">Caf&eacute; Bonjour</h3>
+      <p class="amenity-desc">Start your morning with a complimentary hot &amp; cold buffet breakfast: eggs, waffles, potatoes, fresh fruit, cereals, and premium coffee.</p>
+    </div>
+    <div class="amenity-card fade-up">
+      <div class="amenity-icon">&#127946;</div>
+      <h3 class="amenity-name">Atrium Pool &amp; Spa</h3>
+      <p class="amenity-desc">Year-round heated pool and jetted jacuzzi in our open-air atrium. Open 6 AM &ndash; 10 PM daily.</p>
+    </div>
+    <div class="amenity-card fade-up">
+      <div class="amenity-icon">&#127947;</div>
+      <h3 class="amenity-name">Fitness Center</h3>
+      <p class="amenity-desc">A fully equipped fitness room to keep up with your routine, open daily from 6 AM to 10 PM.</p>
+    </div>
+    <div class="amenity-card fade-up">
+      <div class="amenity-icon">&#128656;</div>
+      <h3 class="amenity-name">Free Shuttle</h3>
+      <p class="amenity-desc">Complimentary shuttle to anywhere within 5 miles &mdash; including Long Beach Airport, The Pike, and the Aquarium of the Pacific.</p>
+    </div>
+    <div class="amenity-card fade-up">
+      <div class="amenity-icon">&#128247;</div>
+      <h3 class="amenity-name">Free WiFi &amp; Parking</h3>
+      <p class="amenity-desc">High-speed wireless throughout the property and complimentary self-parking for every guest.</p>
+    </div>
+    <div class="amenity-card fade-up">
+      <div class="amenity-icon">&#128090;</div>
+      <h3 class="amenity-name">Laundry Facilities</h3>
+      <p class="amenity-desc">Modern on-site washers and dryers available for guest use. Perfect for longer stays.</p>
+    </div>
+  </div>
+</section>
+
+<!-- âââ GALLERY âââ -->
+<section class="gallery" id="gallery">
+  <div class="section-header fade-up">
+    <span class="section-label">Gallery</span>
+    <h2 class="section-title">A Glimpse of Paradise</h2>
+    <p class="section-subtitle">Sun-drenched days, golden sunsets, and the laid-back charm of Seal Beach.</p>
+  </div>
+  <div class="gallery-grid fade-up">
+    <div class="gallery-item">
+      <img src="https://www.thepacificinn.com/images/ThePacificInn.com-SealBeach.jpg" alt="Seal Beach coastline" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn.com-gallery-04-pool.jpg" alt="Atrium pool" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn.com-gallery-02-view.jpg" alt="View from the hotel" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn-NewlyRenovatedExecutives-800.jpg" alt="Newly renovated room" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.thepacificinn.com/images/ThePacificInn.com-amenities-breakfast-room.jpg" alt="Breakfast cafe" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.thepacificinn.com/images/gallery/ThePacificInn.com-gallery-07-shuttle.jpg" alt="Complimentary shuttle" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- âââ EXPLORE / LOCATION âââ -->
+<section class="explore" id="explore">
+  <div class="section-header fade-up">
+    <span class="section-label">Location</span>
+    <h2 class="section-title">Explore Seal Beach &amp; Beyond</h2>
+    <p class="section-subtitle">Central to everything Southern California has to offer.</p>
+  </div>
+  <div class="explore-content">
+    <div class="explore-map fade-up">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.1!2d-118.105!3d33.745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2faaad38acdb%3A0x8fbed82ac7a9a7e1!2sThe%20Pacific%20Inn!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen loading="lazy" title="Map to The Pacific Inn"></iframe>
+    </div>
+    <div class="attraction-list fade-up">
+      <div class="attraction">
+        <div class="attraction-icon">&#127754;</div>
+        <div class="attraction-info">
+          <h4>Seal Beach Pier &amp; Beach</h4>
+          <p>5-minute walk &middot; 1,865 ft of iconic California pier</p>
+        </div>
+      </div>
+      <div class="attraction">
+        <div class="attraction-icon">&#127860;</div>
+        <div class="attraction-info">
+          <h4>Main Street Dining &amp; Shops</h4>
+          <p>5-minute walk &middot; 30+ restaurants &amp; boutiques</p>
+        </div>
+      </div>
+      <div class="attraction">
+        <div class="attraction-icon">&#128032;</div>
+        <div class="attraction-info">
+          <h4>Aquarium of the Pacific</h4>
+          <p>5.3 miles &middot; Discounted tickets in our lobby</p>
+        </div>
+      </div>
+      <div class="attraction">
+        <div class="attraction-icon">&#127920;</div>
+        <div class="attraction-info">
+          <h4>Disneyland&reg; Resort</h4>
+          <p>~12 miles &middot; A short drive on the 405</p>
+        </div>
+      </div>
+      <div class="attraction">
+        <div class="attraction-icon">&#127906;</div>
+        <div class="attraction-info">
+          <h4>Knott's Berry Farm</h4>
+          <p>~9 miles &middot; Thrills for the whole family</p>
+        </div>
+      </div>
+      <div class="attraction">
+        <div class="attraction-icon">&#9992;</div>
+        <div class="attraction-info">
+          <h4>Long Beach Airport (LGB)</h4>
+          <p>5.3 miles &middot; Free shuttle available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- âââ REVIEWS âââ -->
+<section class="reviews" id="reviews">
+  <div class="section-header fade-up">
+    <span class="section-label">Guest Reviews</span>
+    <h2 class="section-title">What Our Guests Say</h2>
+    <p class="section-subtitle">Ranked #1 hotel in Seal Beach with over 1,700 reviews.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade-up">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">The staff went above and beyond to make our anniversary trip special. Loved the free breakfast and being able to walk to the pier. We'll be back every year!</p>
+      <div class="review-author">
+        <div class="review-avatar">JM</div>
+        <div>
+          <div class="review-author-name">Jessica M.</div>
+          <div class="review-author-source">TripAdvisor</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-up">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">Best value near the beach in all of Orange County. Renovated rooms are beautiful, parking is free, and the shuttle to the airport saved us a fortune.</p>
+      <div class="review-author">
+        <div class="review-avatar">DK</div>
+        <div>
+          <div class="review-author-name">David K.</div>
+          <div class="review-author-source">Google Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-up">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">The Pacific Inn is one of the few hotels near Long Beach that's close to both a beach and a charming downtown &mdash; and it's not on a busy highway. Truly a hidden gem.</p>
+      <div class="review-author">
+        <div class="review-avatar">SR</div>
+        <div>
+          <div class="review-author-name">Sarah R.</div>
+          <div class="review-author-source">Yelp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- âââ CTA BANNER âââ -->
+<section class="cta-banner" id="book">
+  <div class="cta-bg"></div>
+  <div class="cta-content fade-up">
+    <span class="section-label" style="color:var(--gold-light)">Ready to Escape?</span>
+    <h2>Book Your Coastal Getaway</h2>
+    <p>Steps from the sand, surrounded by charm &mdash; your Seal Beach retreat starts here.</p>
+    <div class="hero-buttons">
+      <a href="tel:+15624931122" class="btn btn-primary">Call (562) 493-1122</a>
+      <a href="https://www.thepacificinn.com" class="btn btn-outline" target="_blank">Book Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- âââ FOOTER âââ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo-name" style="color:white">The Pacific Inn</span>
+      <span class="nav-logo-tagline">Seal Beach, California</span>
+      <p>A boutique coastal retreat established in 1986, nestled in one of Orange County's most charming beach towns.</p>
+    </div>
+    <div>
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#rooms">Rooms &amp; Suites</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#explore">Location</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-heading">Guest Info</h4>
+      <ul class="footer-links">
+        <li><a href="#amenities">Breakfast</a></li>
+        <li><a href="#amenities">Pool &amp; Fitness</a></li>
+        <li><a href="#amenities">Shuttle Service</a></li>
+        <li><a href="#rooms">Pet Policy</a></li>
+        <li><a href="#explore">Directions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-heading">Contact</h4>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">&#128205;</span>
+        <span>600 Marina Drive<br>Seal Beach, CA 90740</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">&#128222;</span>
+        <span>(562) 493-1122</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">&#128231;</span>
+        <span>info@thepacificinn.com</span>
+      </div>
+      <div style="margin-top:0.5rem">
+        <h4 class="footer-heading" style="margin-bottom:0.75rem">Directions</h4>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.6">From I-405, exit Seal Beach Blvd. Turn left (West) to PCH. Turn right (North) on PCH.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 The Pacific Inn. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">in</a>
+      <a href="#" aria-label="TripAdvisor">TA</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelector('.nav-links')?.classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
